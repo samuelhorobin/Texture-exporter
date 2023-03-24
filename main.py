@@ -27,16 +27,14 @@ def getJarPath(version: str) -> str:
     
     return jarPath
 
-def copyJarData(src, version):
+def copyJarData(src: str, version: str):
     dest = os.path.join(pathlib.Path(__file__).parent, "resource packs", f"{version}.jar")
     print(src, dest)
     jarCopy = shutil.copy(src, dest)
     
-def extractJarData(path):
-    pass
+def extractJarData(path: str, version: str):
+    shutil.make_archive(version, 'zip', path)
 
 copyJarData(getJarPath("1.19.2"), "1.19.2")
-
-
 
 
